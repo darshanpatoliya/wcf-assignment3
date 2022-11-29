@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -27,6 +29,17 @@ namespace WebApplication1
 
             Label5.Text = insertT.ToString();
 
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            ServiceReference1.getTenantData tenantData = new ServiceReference1.getTenantData();
+            tenantData = client.GetInfo();
+
+            DataTable dt = new DataTable();
+            dt = tenantData.tenant1;
+            GridView1.DataSource = dt;
+            GridView1.DataBind();
         }
     }
 }

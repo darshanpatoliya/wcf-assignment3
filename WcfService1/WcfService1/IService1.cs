@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
@@ -12,15 +13,18 @@ namespace WcfService1
     [ServiceContract]
     public interface IService1
     {
-
+         
         [OperationContract]
         string Insert(InsertTenant tenant);
-        
+
+        [OperationContract]
+        getTenantData GetInfo();
 
 
         // TODO: Add your service operations here
     }
 
+    
 
     // Use a data contract as illustrated in the sample below to add composite types to service operations.
     [DataContract]
@@ -51,4 +55,16 @@ namespace WcfService1
             set { rent = value; }
         }
     }
+
+    [DataContract]
+    public class getTenantData
+    {
+        [DataMember]
+        public DataTable tenant1
+        {
+            get;
+            set;
+        }
+    }
+
 }

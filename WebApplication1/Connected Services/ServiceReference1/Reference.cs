@@ -90,6 +90,51 @@ namespace WebApplication1.ServiceReference1 {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="getTenantData", Namespace="http://schemas.datacontract.org/2004/07/WcfService1")]
+    [System.SerializableAttribute()]
+    public partial class getTenantData : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Data.DataTable tenant1Field;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Data.DataTable tenant1 {
+            get {
+                return this.tenant1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.tenant1Field, value) != true)) {
+                    this.tenant1Field = value;
+                    this.RaisePropertyChanged("tenant1");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IService1")]
     public interface IService1 {
@@ -99,6 +144,12 @@ namespace WebApplication1.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Insert", ReplyAction="http://tempuri.org/IService1/InsertResponse")]
         System.Threading.Tasks.Task<string> InsertAsync(WebApplication1.ServiceReference1.InsertTenant tenant);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetInfo", ReplyAction="http://tempuri.org/IService1/GetInfoResponse")]
+        WebApplication1.ServiceReference1.getTenantData GetInfo();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetInfo", ReplyAction="http://tempuri.org/IService1/GetInfoResponse")]
+        System.Threading.Tasks.Task<WebApplication1.ServiceReference1.getTenantData> GetInfoAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -134,6 +185,14 @@ namespace WebApplication1.ServiceReference1 {
         
         public System.Threading.Tasks.Task<string> InsertAsync(WebApplication1.ServiceReference1.InsertTenant tenant) {
             return base.Channel.InsertAsync(tenant);
+        }
+        
+        public WebApplication1.ServiceReference1.getTenantData GetInfo() {
+            return base.Channel.GetInfo();
+        }
+        
+        public System.Threading.Tasks.Task<WebApplication1.ServiceReference1.getTenantData> GetInfoAsync() {
+            return base.Channel.GetInfoAsync();
         }
     }
 }

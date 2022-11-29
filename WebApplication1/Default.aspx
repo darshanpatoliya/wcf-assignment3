@@ -6,8 +6,10 @@
     <div align="center" style="background-color: aqua">
         <asp:Label ID="Label4" runat="server" Text="Tenant's Data"></asp:Label>
     </div>
-        
-        <br /><br /><br />
+
+    <br />
+    <br />
+    <br />
 
     <asp:Label ID="Label1" runat="server" Text="Name"></asp:Label>
     <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox><br />
@@ -18,7 +20,11 @@
     <asp:Label ID="Label3" runat="server" Text="Email"></asp:Label>
     <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox><br />
 
-    <asp:Button ID="Button1" runat="server" Text="Insert" OnClick="Button1_Click" /> <br />
+    <asp:Button ID="Button1" runat="server" Text="Insert" OnClick="Button1_Click" />
+    <asp:Button ID="Button2" runat="server" Text="Search" OnClick="Button2_Click" />
+    <br />
+
+    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False"></asp:GridView>
 
     <asp:Label ID="Label5" runat="server" Text="Label"></asp:Label>
 </asp:Content>

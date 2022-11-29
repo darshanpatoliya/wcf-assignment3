@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -32,11 +33,23 @@ namespace WcfService1
             {
                 message = "Failed to Insert";
             }
-            con.Close();
 
             return message;
         }
 
+        public getTenantData GetInfo()
+        {
+            getTenantData test = new getTenantData();
+            SqlConnection con = new SqlConnection("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=tenant;Integrated Security=True");
+            con.Open();
+            SqlCommand conNewSql = new SqlCommand("Select * from tenant", con);
+
+            SqlDataAdapter dataAdapter = new SqlDataAdapter(conNewSql);
+            DataTable dt = new DataTable();
+            dataAdapter.Fill(dt);
+            test.tenant1 = dt;
+            return test;
+        }
 
         
     }
