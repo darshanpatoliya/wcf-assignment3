@@ -16,9 +16,9 @@ namespace WcfService1
         public string Insert(InsertTenant tenant)
         {
             string message;
-            SqlConnection con = new SqlConnection("Data Source=DESKTOP-5H6RLHG;Initial Catalog=tenant;Persist Security Info=True;User ID=sa;Password=***********");
+            SqlConnection con = new SqlConnection("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=tenant;Integrated Security=True");
             con.Open();     
-                SqlCommand cmd = new SqlCommand("Insert into tenant (Name, Rent, Email) values(@Name, @Rent, @Email)", con);
+            SqlCommand cmd = new SqlCommand("Insert into tenant (Name, Rent, Email) values(@Name, @Rent, @Email)", con);
             cmd.Parameters.AddWithValue("@Name", tenant.Name);
             cmd.Parameters.AddWithValue("@Rent", tenant.Rent);
             cmd.Parameters.AddWithValue("@Email", tenant.Email);
@@ -32,6 +32,8 @@ namespace WcfService1
             {
                 message = "Failed to Insert";
             }
+            con.Close();
+
             return message;
         }
 

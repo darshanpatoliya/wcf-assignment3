@@ -15,6 +15,7 @@ namespace WcfService1
 
         [OperationContract]
         string Insert(InsertTenant tenant);
+        
 
 
         // TODO: Add your service operations here
