@@ -135,6 +135,144 @@ namespace WebApplication1.ServiceReference1 {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="UpdateTenant", Namespace="http://schemas.datacontract.org/2004/07/WcfService1")]
+    [System.SerializableAttribute()]
+    public partial class UpdateTenant : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TenantEmailField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int TenantIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TenantNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TenantRentField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string TenantEmail {
+            get {
+                return this.TenantEmailField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TenantEmailField, value) != true)) {
+                    this.TenantEmailField = value;
+                    this.RaisePropertyChanged("TenantEmail");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TenantId {
+            get {
+                return this.TenantIdField;
+            }
+            set {
+                if ((this.TenantIdField.Equals(value) != true)) {
+                    this.TenantIdField = value;
+                    this.RaisePropertyChanged("TenantId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string TenantName {
+            get {
+                return this.TenantNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TenantNameField, value) != true)) {
+                    this.TenantNameField = value;
+                    this.RaisePropertyChanged("TenantName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string TenantRent {
+            get {
+                return this.TenantRentField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TenantRentField, value) != true)) {
+                    this.TenantRentField = value;
+                    this.RaisePropertyChanged("TenantRent");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DeleteTenant", Namespace="http://schemas.datacontract.org/2004/07/WcfService1")]
+    [System.SerializableAttribute()]
+    public partial class DeleteTenant : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int TENANTIDField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TENANTID {
+            get {
+                return this.TENANTIDField;
+            }
+            set {
+                if ((this.TENANTIDField.Equals(value) != true)) {
+                    this.TENANTIDField = value;
+                    this.RaisePropertyChanged("TENANTID");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IService1")]
     public interface IService1 {
@@ -150,6 +288,18 @@ namespace WebApplication1.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetInfo", ReplyAction="http://tempuri.org/IService1/GetInfoResponse")]
         System.Threading.Tasks.Task<WebApplication1.ServiceReference1.getTenantData> GetInfoAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Update", ReplyAction="http://tempuri.org/IService1/UpdateResponse")]
+        string Update(WebApplication1.ServiceReference1.UpdateTenant t);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Update", ReplyAction="http://tempuri.org/IService1/UpdateResponse")]
+        System.Threading.Tasks.Task<string> UpdateAsync(WebApplication1.ServiceReference1.UpdateTenant t);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Delete", ReplyAction="http://tempuri.org/IService1/DeleteResponse")]
+        string Delete(WebApplication1.ServiceReference1.DeleteTenant deletetenant);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Delete", ReplyAction="http://tempuri.org/IService1/DeleteResponse")]
+        System.Threading.Tasks.Task<string> DeleteAsync(WebApplication1.ServiceReference1.DeleteTenant deletetenant);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -193,6 +343,22 @@ namespace WebApplication1.ServiceReference1 {
         
         public System.Threading.Tasks.Task<WebApplication1.ServiceReference1.getTenantData> GetInfoAsync() {
             return base.Channel.GetInfoAsync();
+        }
+        
+        public string Update(WebApplication1.ServiceReference1.UpdateTenant t) {
+            return base.Channel.Update(t);
+        }
+        
+        public System.Threading.Tasks.Task<string> UpdateAsync(WebApplication1.ServiceReference1.UpdateTenant t) {
+            return base.Channel.UpdateAsync(t);
+        }
+        
+        public string Delete(WebApplication1.ServiceReference1.DeleteTenant deletetenant) {
+            return base.Channel.Delete(deletetenant);
+        }
+        
+        public System.Threading.Tasks.Task<string> DeleteAsync(WebApplication1.ServiceReference1.DeleteTenant deletetenant) {
+            return base.Channel.DeleteAsync(deletetenant);
         }
     }
 }

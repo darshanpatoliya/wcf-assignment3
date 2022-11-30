@@ -45,12 +45,54 @@ namespace WcfService1
             SqlCommand conNewSql = new SqlCommand("Select * from tenant", con);
 
             SqlDataAdapter dataAdapter = new SqlDataAdapter(conNewSql);
-            DataTable dt = new DataTable();
+            DataTable dt = new DataTable("tenant");
             dataAdapter.Fill(dt);
             test.tenant1 = dt;
             return test;
         }
 
-        
+        public string Update(UpdateTenant t)
+        {
+            string message1="";
+            SqlConnection con = new SqlConnection("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=tenant;Integrated Security=True");
+            con.Open();
+            SqlCommand cmd = new SqlCommand("Update tenant set Name=@Name, Rent=@Rent, Email=@Email where tenantID=@tenantID", con);
+            cmd.Parameters.AddWithValue("@tenantID", t.TenantId);
+            cmd.Parameters.AddWithValue("@Name", t.TenantName);
+            cmd.Parameters.AddWithValue("@Rent", t.TenantRent);
+            cmd.Parameters.AddWithValue("@Email", t.TenantEmail);
+
+            int resultTenant = cmd.ExecuteNonQuery();
+
+            if (resultTenant == 1)
+            {
+                message1 = "Successfully Updated";
+            }
+            else
+            {
+                message1 = "Failed to Update";
+            }
+            return message1;
+        }
+
+        public string Delete(DeleteTenant deletetenant)
+        {
+            string message2 = "";
+            SqlConnection con = new SqlConnection("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=tenant;Integrated Security=True");
+            con.Open();
+            SqlCommand cmd = new SqlCommand("delete tenant where tenantID=@tenantID", con);
+            cmd.Parameters.AddWithValue("@tenantID", deletetenant.TENANTID);
+            int result2Tenant = cmd.ExecuteNonQuery();
+            if (result2Tenant == 1)
+            {
+                message2 = "Successfully Deleted";
+            }
+            else
+            {
+                message2 = "Failed to delete";
+            }
+            return message2;
+
+        }
     }
 }

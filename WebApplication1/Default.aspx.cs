@@ -41,5 +41,28 @@ namespace WebApplication1
             GridView1.DataSource = dt;
             GridView1.DataBind();
         }
+
+        protected void Button3_Click(object sender, EventArgs e)
+        {
+            UpdateTenant up = new UpdateTenant();
+            up.TenantId = int.Parse(TextBox4.Text);
+            up.TenantName = TextBox1.Text;
+            up.TenantRent = TextBox2.Text;
+            up.TenantEmail = TextBox3.Text;
+
+            string resultTenant = client.Update(up);
+            Label5.Text = resultTenant.ToString();
+
+        }
+
+        protected void Button4_Click(object sender, EventArgs e)
+        {
+            DeleteTenant deletetenant = new DeleteTenant();
+            deletetenant.TENANTID = int.Parse(TextBox4.Text);
+            
+
+            string result2Tenant = client.Delete(deletetenant);
+            Label5.Text = result2Tenant.ToString();
+        }
     }
 }

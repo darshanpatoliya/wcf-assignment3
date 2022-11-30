@@ -20,6 +20,12 @@ namespace WcfService1
         [OperationContract]
         getTenantData GetInfo();
 
+        [OperationContract]
+        string Update(UpdateTenant t);
+
+        [OperationContract]
+        string Delete(DeleteTenant deletetenant);
+
 
         // TODO: Add your service operations here
     }
@@ -64,6 +70,57 @@ namespace WcfService1
         {
             get;
             set;
+        }
+    }
+
+    [DataContract]
+    public class UpdateTenant
+    {
+        int tenantId;
+        string tenantName;
+        string tenantRent;
+        string tenantEmail;
+
+        [DataMember]
+        public int TenantId
+        {
+            get { return tenantId; }
+            set { tenantId = value; }
+        }
+
+        [DataMember]
+        public string TenantName
+        {
+            get { return tenantName; }    
+            set { tenantName = value; }
+        }
+
+        [DataMember]
+        public string TenantRent
+        {
+            get { return tenantRent; }
+            set { tenantRent = value; }
+        }
+
+        [DataMember]
+        public string TenantEmail
+        {
+            get { return tenantEmail; }     
+            set { tenantEmail = value; }
+        }
+    }
+
+    [DataContract]
+    public class DeleteTenant
+    {
+        int tenantId;
+
+        [DataMember]
+
+        public int TENANTID
+        {
+            get { return tenantId; }
+            set { tenantId = value; }
         }
     }
 

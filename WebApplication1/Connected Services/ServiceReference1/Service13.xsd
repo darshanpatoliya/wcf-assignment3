@@ -26,4 +26,19 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="getTenantData" nillable="true" type="tns:getTenantData" />
+  <xs:complexType name="UpdateTenant">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="TenantEmail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TenantId" type="xs:int" />
+      <xs:element minOccurs="0" name="TenantName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TenantRent" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UpdateTenant" nillable="true" type="tns:UpdateTenant" />
+  <xs:complexType name="DeleteTenant">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="TENANTID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DeleteTenant" nillable="true" type="tns:DeleteTenant" />
 </xs:schema>
